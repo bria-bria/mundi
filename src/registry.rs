@@ -195,6 +195,17 @@ static ITALY_EXERCISES: &[MapExercise] = &[
         kind: ExerciseKind::Standard,
         alternates: &[],
     },
+    MapExercise {
+        id: "lakes",
+        country_id: "italy",
+        title_msgid: N_("Lakes"),
+        title_context: None,
+        svg_resource: "/io/github/nacho/mundi/maps/italy/lakes.svg",
+        regions: crate::region_names::ITALY_LAKES,
+        group: None,
+        kind: ExerciseKind::Standard,
+        alternates: &[],
+    },
 ];
 
 static INDIA_EXERCISES: &[MapExercise] = &[MapExercise {
@@ -553,6 +564,22 @@ mod tests {
         );
         // Regions are decorative (__<Region>), like the Spain rivers map, so
         // the rivers are drawn in a different color than the land.
+        assert_ids_present(
+            &svg,
+            crate::region_names::ITALY_REGIONS
+                .iter()
+                .map(|(region, _)| format!("__{region}")),
+        );
+    }
+
+    #[test]
+    fn italy_lakes_svg_ids_present() {
+        let ex = exercise("italy", "lakes");
+        assert_eq!(ex.regions.len(), 14, "Italy should have 14 lakes");
+        let svg = read_svg(ex.svg_resource);
+        // Each lake is a clickable region with its own id.
+        assert_ids_present(&svg, ex.regions.iter().map(|(lake, _)| lake.to_string()));
+        // Regions are decorative (__<Region>) so the lakes stand out.
         assert_ids_present(
             &svg,
             crate::region_names::ITALY_REGIONS

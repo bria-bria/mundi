@@ -85,6 +85,23 @@ pub const ITALY_RIVERS: &[(&str, &str)] = &[
     ("Volturno", N_("Volturno")),
 ];
 
+pub const ITALY_LAKES: &[(&str, &str)] = &[
+    ("Albano", N_("Lake Albano")),
+    ("Bolsena", N_("Lake Bolsena")),
+    ("Bracciano", N_("Lake Bracciano")),
+    ("Coghinas", N_("Lake Coghinas")),
+    ("Como", N_("Lake Como")),
+    ("Garda", N_("Lake Garda")),
+    ("Iseo", N_("Lake Iseo")),
+    ("Lesina", N_("Lake Lesina")),
+    ("Lugano", N_("Lake Lugano")),
+    ("Maggiore", N_("Lake Maggiore")),
+    ("Omodeo", N_("Lake Omodeo")),
+    ("Trasimeno", N_("Lake Trasimeno")),
+    ("Varano", N_("Lake Varano")),
+    ("Vico", N_("Lake Vico")),
+];
+
 pub const GERMANY_STATES: &[(&str, &str)] = &[
     ("Baden-Württemberg", N_("Baden-Württemberg")),
     ("Bavaria", N_("Bavaria")),
