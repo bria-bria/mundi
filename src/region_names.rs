@@ -61,6 +61,30 @@ pub const ITALY_REGION_CAPITALS: &[(&str, &str)] = &[
     (N_("Venice"), N_("Veneto")),
 ];
 
+pub const ITALY_RIVERS: &[(&str, &str)] = &[
+    ("Adda", N_("Adda")),
+    ("Adige", N_("Adige")),
+    ("Arno", N_("Arno")),
+    ("Brenta", N_("Brenta")),
+    ("Crati", N_("Crati")),
+    ("Dora Baltea", N_("Dora Baltea")),
+    ("Isonzo", N_("Isonzo")),
+    ("Mincio", N_("Mincio")),
+    ("Ofanto", N_("Ofanto")),
+    ("Oglio", N_("Oglio")),
+    ("Pescara", N_("Pescara")),
+    ("Piave", N_("Piave")),
+    ("Po", N_("Po")),
+    ("Reno", N_("Reno")),
+    ("Simeto", N_("Simeto")),
+    ("Tagliamento", N_("Tagliamento")),
+    ("Tanaro", N_("Tanaro")),
+    ("Tevere", N_("Tiber")),
+    ("Ticino", N_("Ticino")),
+    ("Tirso", N_("Tirso")),
+    ("Volturno", N_("Volturno")),
+];
+
 pub const GERMANY_STATES: &[(&str, &str)] = &[
     ("Baden-Württemberg", N_("Baden-Württemberg")),
     ("Bavaria", N_("Bavaria")),

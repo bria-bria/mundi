@@ -184,6 +184,17 @@ static ITALY_EXERCISES: &[MapExercise] = &[
         kind: ExerciseKind::Capitals,
         alternates: &[],
     },
+    MapExercise {
+        id: "rivers",
+        country_id: "italy",
+        title_msgid: N_("Rivers"),
+        title_context: None,
+        svg_resource: "/io/github/nacho/mundi/maps/italy/rivers.svg",
+        regions: crate::region_names::ITALY_RIVERS,
+        group: None,
+        kind: ExerciseKind::Standard,
+        alternates: &[],
+    },
 ];
 
 static INDIA_EXERCISES: &[MapExercise] = &[MapExercise {
@@ -519,6 +530,27 @@ mod tests {
         let svg = read_svg(ex.svg_resource);
         // Each capital dot must be present by its own id.
         assert_ids_present(&svg, ex.regions.iter().map(|(cap, _)| cap.to_string()));
+        // Each region must have a background outline (_bg_<Region>).
+        assert_ids_present(
+            &svg,
+            crate::region_names::ITALY_REGIONS
+                .iter()
+                .map(|(region, _)| format!("_bg_{region}")),
+        );
+    }
+
+    #[test]
+    fn italy_rivers_svg_ids_present() {
+        let ex = exercise("italy", "rivers");
+        assert_eq!(ex.regions.len(), 21, "Italy should have 21 rivers");
+        let svg = read_svg(ex.svg_resource);
+        // Each river must be a stroke path (_river_<Name>).
+        assert_ids_present(
+            &svg,
+            ex.regions
+                .iter()
+                .map(|(river, _)| format!("_river_{river}")),
+        );
         // Each region must have a background outline (_bg_<Region>).
         assert_ids_present(
             &svg,
