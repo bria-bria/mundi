@@ -551,12 +551,13 @@ mod tests {
                 .iter()
                 .map(|(river, _)| format!("_river_{river}")),
         );
-        // Each region must have a background outline (_bg_<Region>).
+        // Regions are decorative (__<Region>), like the Spain rivers map, so
+        // the rivers are drawn in a different color than the land.
         assert_ids_present(
             &svg,
             crate::region_names::ITALY_REGIONS
                 .iter()
-                .map(|(region, _)| format!("_bg_{region}")),
+                .map(|(region, _)| format!("__{region}")),
         );
     }
 }
